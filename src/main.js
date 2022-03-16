@@ -4,4 +4,18 @@ import './registerServiceWorker'
 import router from './router'
 import store from './store'
 
-createApp(App).use(store).use(router).mount('#app')
+
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+
+require('./store/subscriber')
+
+axios.defaults.baseURL = "http://127.0.0.1:8000/api"
+
+store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
+    const app = createApp(App)
+    app.use(store)
+    app.use(router)
+    app.use(VueAxios, axios)
+    app.mount('#app')
+})
