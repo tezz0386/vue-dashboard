@@ -15,6 +15,7 @@
   </nav> -->
   <div>
        <router-view/>
+       <vue-progress-bar></vue-progress-bar>
   </div>
 </template>
 
@@ -37,11 +38,17 @@ export default {
             name:'home'
           });
       });
-    }
+    },
   }
 
 }
 </script>
 <style>
-
+.admin-header {
+  margin-left: 300px;
+}
+.bars {
+  font-size: 25px;
+  color: black;
+}
 </style>

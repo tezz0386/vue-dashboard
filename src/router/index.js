@@ -1,8 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import store from '../store'
+// import store from '../store'
 import HomeView from '../views/HomeView.vue'
 import Login from '../components/pages/Login'
 import Dashboard from '../components/pages/admin/Dashboard'
+import AdminSetting from '../components/pages/admin/AdminSetting'
 
 const routes = [{
         path: '/',
@@ -13,28 +14,42 @@ const routes = [{
         path: '/login',
         name: 'Login',
         component: Login,
-        beforeEnter: (to, from, next) => {
-            if (store.getters['auth/authenticated']) {
-                return next({
-                    name: 'Dashboard'
-                })
-            }
-            next();
-        }
+        // beforeEnter: (to, from, next) => {
+        //     if (store.getters['auth/authenticated']) {
+        //         return next({
+        //             name: 'Dashboard'
+        //         })
+        //     }
+        //     next();
+        // }
     },
     {
         path: '/dashboard',
         name: 'Dashboard',
         component: Dashboard,
-        beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
-                return next({
-                    name: 'Login'
-                })
-            }
-            next();
-        }
+        // beforeEnter: (to, from, next) => {
+        //     if (!store.getters['auth/authenticated']) {
+        //         return next({
+        //             name: 'Login'
+        //         })
+        //     }
+        //     next();
+        // }
     },
+    {
+        path: '/admin/setting',
+        name: 'AdminSetting',
+        component: AdminSetting,
+        // beforeEnter: (to, from, next) => {
+        //     if (!store.getters['auth/authenticated']) {
+        //         return next({
+        //             name: 'Login'
+        //         })
+        //     }
+        //     next();
+        // }
+    },
+
     {
         path: '/about',
         name: 'about',
