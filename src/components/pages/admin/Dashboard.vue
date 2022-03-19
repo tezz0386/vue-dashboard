@@ -32,7 +32,7 @@
                 <a class="nav-link" href="#">Link</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                <a class="nav-link" @click="signOut">Logout</a>
               </li>
             </ul>
           </div>
@@ -49,6 +49,7 @@
 </template>
 <script>
 import AdminSideMenu from "./shared/AdminSideMenu.vue";
+import {mapActions } from 'vuex'
 export default {
   components: { AdminSideMenu },
   name: "AdminDashboard",
@@ -62,7 +63,16 @@ export default {
     }
   },
   methods:{
-    
+    ...mapActions({
+      signOutAction: 'auth/signOutAction',
+    }),
+    signOut(){
+      this.signOutAction().then(()=>{
+          this.$router.replace({
+            name:'home'
+          });
+      });
+    },
   }
 };
 </script>

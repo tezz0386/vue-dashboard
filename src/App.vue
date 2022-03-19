@@ -94,7 +94,7 @@ export default {
   color: aqua;
 }
 .logo {
-  height: 23px;
+  height: 26px;
   width: auto;
 }
 .active{

@@ -7,7 +7,7 @@
           alt="image not found"
           class="logo"
         />
-        <span class="text-danger menu-text">Tejendra Dangaura</span>
+        <span class="text-danger menu-text">{{user.name}}</span>
       </label>
     </div>
     <div class="admin-side-menu-body mt-3">
@@ -135,7 +135,7 @@
   </div>
 </template>
 <script>
-
+import { mapGetters } from 'vuex'
 export default {
   name: "AdminSideMenu",
   props:{
@@ -151,8 +151,11 @@ export default {
       },
     };
   },
-  computed(){
-
+  computed:{
+    ...mapGetters({
+        authenticated: 'auth/authenticated',
+        user: 'auth/user',
+      }),
   },
   methods: {
    
