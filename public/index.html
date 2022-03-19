@@ -19,6 +19,23 @@
     </noscript>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+    <script>
+        function myFunction() {
+            var element = document.getElementById("admin-header");
+            var element1 = document.getElementById("admin-side-menu");
+            element.classList.toggle("admin-min-header");
+            element1.classList.toggle("admin-min-side-menu");
+
+
+            var ele = document.getElementsByClassName('menu-text');
+            for (var i = 0; i < ele.length; i++) {
+                ele[i].classList.toggle("menu-text-display-none");
+            }
+
+
+
+        }
+    </script>
 </body>
 
 </html>

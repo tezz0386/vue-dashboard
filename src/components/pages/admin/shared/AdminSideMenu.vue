@@ -1,5 +1,5 @@
 <template>
-  <div class="admin-side-menu">
+  <div class="admin-side-menu" id="admin-side-menu">
     <div class="side-menu-heading p-3">
       <label for="logo">
         <img
@@ -7,7 +7,7 @@
           alt="image not found"
           class="logo"
         />
-        <span class="text-danger">Tejendra Dangaura</span>
+        <span class="text-danger menu-text">Tejendra Dangaura</span>
       </label>
     </div>
     <div class="admin-side-menu-body mt-3">
@@ -17,7 +17,7 @@
             <router-link to="/dashboard" :class="{active: activePage=='dashboard'}">
             <a href="#" class="p-2"
               >
-              <span><i class="fa-solid fa-gauge pe-2"></i></span>Dashboard
+               <i class="fa-solid fa-gauge pe-2"></i><span class="menu-text">Dashboard</span>
               </a
             >
             </router-link>
@@ -25,31 +25,29 @@
           <li class="pt-1 pb-1">
             <router-link to="/admin/setting" :class="{active: activePage=='setting'}">
             <a href="#" class="p-2">
-              <span><i class="fa-solid fa-gear pe-2"></i></span>
-              Setting
+              <i class="fa-solid fa-gear pe-2"></i><span class="menu-text">Setting</span>
             </a>
             </router-link>
           </li>
           <li class="pt-1 pb-1">
             <a href="#" class="p-2"
-              ><span><i class="fa-solid fa-images pe-2"></i></span>Gallery</a
+              ><i class="fa-solid fa-images pe-2"></i><span class="menu-text">Gallery</span></a
             >
           </li>
-          <li class="pt-1 pb-1">
+           <li class="pt-1 pb-1">
             <a
               class="p-2"
-              @click="this.form.show = !this.form.show"
+              @click="this.page.show = !this.page.show"
               data-bs-toggle="collapse"
               href="#collapseExample"
               role="button"
               aria-expanded="false"
               aria-controls="collapseExample"
             >
-              <span><i class="fa-solid fa-border-none pe-2"></i></span>
-              Form
+              <i class="fa-brands fa-pagelines pe-2"></i><span class="menu-text">Page</span>
               <span class="float-end pe-2">
-                <i class="fa-solid fa-angle-right" v-if="this.form.show"></i>
-                <i class="fa-solid fa-angle-down" v-if="!this.form.show"></i>
+                <i class="fa-solid fa-angle-right" v-if="this.page.show"></i>
+                <i class="fa-solid fa-angle-down" v-if="!this.page.show"></i>
               </span>
             </a>
             <div class="collapse" id="collapseExample">
@@ -57,24 +55,26 @@
                 <ul class="list-unstyled">
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i></span
-                      >Basic Form</a
+                      >
+                      <i class="fa-solid fa-circle-right"></i>
+                      <span class="pe-2 menu-text"
+                        >Login Page</span
+                      ></a
                     >
                   </li>
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i
-                      ></span>
-                      Advance Form</a
+                      ><i class="fa-solid fa-circle-right"></i
+                      ><span class="pe-2 menu-text"
+                        >Register</span>
+                    </a
                     >
                   </li>
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i></span
-                      >Others Element</a
+                      ><i class="fa-solid fa-circle-right"></i><span class="pe-2 menu-text"
+                        >Welcome</span
+                      ></a
                     >
                   </li>
                 </ul>
@@ -92,8 +92,7 @@
               aria-expanded="false"
               aria-controls="collapseExample1"
             >
-              <span><i class="fa-brands fa-pagelines pe-2"></i></span>
-              Page
+              <i class="fa-brands fa-pagelines pe-2"></i><span class="menu-text">Page</span>
               <span class="float-end pe-2">
                 <i class="fa-solid fa-angle-right" v-if="this.page.show"></i>
                 <i class="fa-solid fa-angle-down" v-if="!this.page.show"></i>
@@ -104,24 +103,26 @@
                 <ul class="list-unstyled">
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i></span
-                      >Login Page</a
+                      >
+                      <i class="fa-solid fa-circle-right"></i>
+                      <span class="pe-2 menu-text"
+                        >Login Page</span
+                      ></a
                     >
                   </li>
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i
-                      ></span>
-                      Register</a
+                      ><i class="fa-solid fa-circle-right"></i
+                      ><span class="pe-2 menu-text"
+                        >Register</span>
+                    </a
                     >
                   </li>
                   <li>
                     <a href="#" class="ps-2 pe-2 pb-1 pt-1"
-                      ><span class="pe-2"
-                        ><i class="fa-solid fa-circle-right"></i></span
-                      >Welcome</a
+                      ><i class="fa-solid fa-circle-right"></i><span class="pe-2 menu-text"
+                        >Welcome</span
+                      ></a
                     >
                   </li>
                 </ul>
@@ -134,6 +135,7 @@
   </div>
 </template>
 <script>
+
 export default {
   name: "AdminSideMenu",
   props:{
@@ -149,45 +151,14 @@ export default {
       },
     };
   },
+  computed(){
+
+  },
   methods: {
    
   },
 };
 </script>
-<style scoped>
-.admin-side-menu {
-  background-color: rgb(121, 159, 196);
-  height: 100vh;
-  width: 300px;
-  position: fixed;
-  top: 0;
-}
-.side-menu-heading {
-  background-color: rgb(13, 202, 240);
-}
-.admin-side-menu-body {
-  border-right: 1px slateblue solid;
-  height: 100%;
-  overflow-x: scroll;
-}
-.side-menu li {
-  display: block;
-}
-.side-menu li a {
-  text-decoration: none;
-  display: block;
-  color: rgb(27, 26, 26);
-  font-weight: 600;
-}
-.side-menu li a:hover {
-  background-color: blue;
-  color: aqua;
-}
-.logo {
-  height: 23px;
-  width: auto;
-}
-.active{
-   background-color: blue;
-}
+<style>
+
 </style>

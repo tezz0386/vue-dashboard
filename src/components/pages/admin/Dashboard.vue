@@ -1,10 +1,10 @@
 <template>
   <div>
-    <div class="admin-header">
+    <div class="admin-header" id="admin-header">
       <nav class="navbar navbar-expand navbar-light bg-info sticky-top">
         <div class="container-fluid">
           <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-            <a href="#" class="me-5 bars" @click="minimizeMenu"><i class="fa-solid fa-bars"></i></a>
+            <a href="#" class="me-5 bars" onclick="myFunction()"><i class="fa-solid fa-bars"></i></a>
             <a class="navbar-brand" href="#">Home</a>
             <form class="d-flex">
               <div class="input-group input-group-sm">
@@ -62,9 +62,7 @@ export default {
     }
   },
   methods:{
-    minimizeMenu(){
-     alert()
-    },
+    
   }
 };
 </script>

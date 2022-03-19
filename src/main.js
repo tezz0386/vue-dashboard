@@ -29,7 +29,7 @@ const options = {
 
 require('./store/subscriber')
 
-axios.defaults.baseURL = "http://127.0.0.1:8000/api"
+axios.defaults.baseURL = "http://127.0.0.1:8000/api/v1"
 
 store.dispatch('auth/attempt', localStorage.getItem('token')).then(() => {
     const app = createApp(App)
