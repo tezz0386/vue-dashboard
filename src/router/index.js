@@ -16,8 +16,13 @@ const routes = [{
         component: Login,
         beforeEnter: (to, from, next) => {
             if (store.getters['auth/authenticated']) {
+                if (store.getters['auth/user'].role == 'admin') {
+                    return next({
+                        name: 'Dashboard'
+                    })
+                }
                 return next({
-                    name: 'Dashboard'
+                    name: 'home'
                 })
             }
             next();
@@ -28,25 +33,43 @@ const routes = [{
         name: 'Dashboard',
         component: Dashboard,
         beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
+            if (store.getters['auth/authenticated']) {
+                if (store.getters['auth/user'].role == 'admin') {
+                    next();
+                } else {
+                    return next({
+                        name: 'home'
+                    })
+                }
+            } else {
                 return next({
                     name: 'Login'
                 })
             }
-            next();
+
         }
+
     },
     {
         path: '/admin/setting',
         name: 'AdminSetting',
         component: AdminSetting,
         beforeEnter: (to, from, next) => {
-            if (!store.getters['auth/authenticated']) {
+            if (store.getters['auth/authenticated']) {
+                console.log(store.getters['auth/user'].role)
+                if (store.getters['auth/user'].role == 'admin') {
+                    next();
+                } else {
+                    return next({
+                        name: 'home'
+                    })
+                }
+            } else {
                 return next({
                     name: 'Login'
                 })
             }
-            next();
+
         }
     },
 
