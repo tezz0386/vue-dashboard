@@ -97,9 +97,6 @@ export default {
   height: 26px;
   width: auto;
 }
-.active{
-   background-color: blue;
-}
 .menu-text-display-none{
   display: none;
 }

@@ -162,6 +162,14 @@ export default {
   },
 };
 </script>
-<style>
-
+<style scoped>
+.active{
+   background-color: blue;
+}
+.active a{
+  color: aqua;
+}
+.active a span{
+  color: aqua;
+}
 </style>
